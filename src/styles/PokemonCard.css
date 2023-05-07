@@ -1,7 +1,22 @@
 .poke-card {
     font-family: 'Titillium Web', sans-serif;
+    border: none;
 }
 
 .imagen-card {
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(242, 242, 242);
+}
+
+.btn-cargar {
+    color: white;
+    background-color: #30a7d7;
+    border: none;
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    margin: 20px auto;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 800;
+    font-size: large;
+
 }

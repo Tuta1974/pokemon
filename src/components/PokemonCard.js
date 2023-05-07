@@ -14,8 +14,8 @@ function PokemonCard({ pokemon }) {
 
   if (!pokemonInfo) return null;
 
-  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.slice(34, -1)}.png`;
-  const pokemonNumber = `#${pokemonInfo.id.toString().padStart(3, '0')}`;
+  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonInfo.id}.png`;
+  const pokemonNumber = `N.º ${pokemonInfo.id.toString().padStart(4, '0')}`;
   const pokemonTypes = pokemonInfo.types.map(type => type.type.name);
 
   const getTypeColor = (type) => {
@@ -74,7 +74,7 @@ function PokemonCard({ pokemon }) {
             <span
               key={index}
               style={{ backgroundColor: getTypeColor(type) }}
-              className='badge rounded-pill me-1'
+              className='badge  me-1'
             >
               {type}
             </span>
