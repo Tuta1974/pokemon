@@ -1,11 +1,11 @@
 
 
 import PokemonGrid from './components/PokemonGrid';
-import './App.css'
+import './index.css'
 
 function App() {
   return (
-    <div className='container'>
+    <div className='container pt-2'>
         <PokemonGrid />
     </div>
   );
