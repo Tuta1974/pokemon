@@ -12,9 +12,9 @@ function PokemonGrid() {
   }, []);
 
   return (
-    <Row xs={1} md={6} className="g-4">
+    <Row className="g-4">
       {pokemons.map(pokemon => (
-        <Col key={pokemon.name}>
+        <Col key={pokemon.name} xs={12} sm={6} md={3} xl={2}>
           <PokemonCard pokemon={pokemon} />
         </Col>
       ))}
