@@ -1,3 +1,5 @@
 .container {
     background: white;
+    display: flex;
+    align-items: center;
 }
