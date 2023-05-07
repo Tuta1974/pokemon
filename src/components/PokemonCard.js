@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
+import '../styles/PokemonCard.css'
 
 function PokemonCard({ pokemon }) {
   const [pokemonInfo, setPokemonInfo] = useState(null);
@@ -61,14 +62,14 @@ function PokemonCard({ pokemon }) {
   };
 
   return (
-    <Card className="shadow-sm">
-      <Card.Img variant="top" src={imageUrl} />
+    <Card className="shadow-sm poke-card">
+      <Card.Img className="imagen-card" variant="top" src={imageUrl} />
       <Card.Body>
-        <Card.Text className='text-center'>{pokemonNumber}</Card.Text>
-        <Card.Title className='text-center text-capitalize'>
+        <Card.Subtitle className="mb-2 text-muted">{pokemonNumber}</Card.Subtitle>
+        <Card.Title className='text-capitalize' style={{fontWeight: '800'}}>
           {pokemon.name}
         </Card.Title>
-        <Card.Text className='text-center'>
+        <Card.Text>
           {pokemonTypes.map((type, index) => (
             <span
               key={index}
