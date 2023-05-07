@@ -14,50 +14,50 @@ function PokemonCard({ pokemon }) {
 
   if (!pokemonInfo) return null;
 
-  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.slice(34, -1)}.png`;
-  const pokemonNumber = `#${pokemonInfo.id.toString().padStart(3, '0')}`;
+  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonInfo.id}.png`;
+  const pokemonNumber = `N.º ${pokemonInfo.id.toString().padStart(4, '0')}`;
   const pokemonTypes = pokemonInfo.types.map(type => type.type.name);
 
   const getTypeColor = (type) => {
     switch (type) {
       case 'normal':
-        return '#A8A878';
+        return 'linear-gradient(#a4acaf 50%,#a4acaf 50%)';
       case 'fire':
-        return '#F08030';
+        return 'linear-gradient(#fd7d24 50%,#fd7d24 50%)';
       case 'water':
-        return '#6890F0';
+        return 'linear-gradient(#4592c3 50%,#4592c3 50%)';
       case 'electric':
-        return '#F8D030';
+        return 'linear-gradient(#a4acaf 50%,#a4acaf 50%)';
       case 'grass':
-        return '#78C850';
+        return 'linear-gradient(#9bcc50 50%,#9bcc50 50%)';
       case 'ice':
-        return '#98D8D8';
+        return 'linear-gradient(#51c4e7 50%,#51c4e7 50%)';
       case 'fighting':
-        return '#C03028';
+        return 'linear-gradient(#d56723 50%,#d56723 50%)';
       case 'poison':
-        return '#A040A0';
+        return 'linear-gradient(#b97fc9 50%,#b97fc9 50%)';
       case 'ground':
-        return '#E0C068';
+        return 'linear-gradient(#f7de3f 50%,#ab9842 50%)';
       case 'flying':
-        return '#A890F0';
+        return 'linear-gradient(#3dc7ef 50%,#bdb9b8 50%)';
       case 'psychic':
-        return '#F85888';
+        return 'linear-gradient(#f366b9 50%,#f366b9 50%)';
       case 'bug':
-        return '#A8B820';
+        return 'linear-gradient(#729f3f 50%,#729f3f 50%)';
       case 'rock':
-        return '#B8A038';
+        return 'linear-gradient(#a38c21 50%,#a38c21 50%)';
       case 'ghost':
-        return '#705898';
+        return 'linear-gradient(#51c4e7 50%,#51c4e7 50%)';
       case 'dragon':
-        return '#7038F8';
+        return 'linear-gradient(#53a4cf 50%,#f16e57 50%)';
       case 'dark':
-        return '#705848';
+        return 'linear-gradient(#707070 50%,#707070 50%)';
       case 'steel':
-        return '#B8B8D0';
+        return 'linear-gradient(#9eb7b8 50%,#9eb7b8 50%)';
       case 'fairy':
-        return '#EE99AC';
+        return 'linear-gradient(#ab9842 50%,#ab9842 50%)';
       default:
-        return '#000';
+        return 'linear-gradient(#000 50%,#000 50%)';
     }
   };
 
@@ -73,8 +73,8 @@ function PokemonCard({ pokemon }) {
           {pokemonTypes.map((type, index) => (
             <span
               key={index}
-              style={{ backgroundColor: getTypeColor(type) }}
-              className='badge rounded-pill me-1'
+              style={{ backgroundImage: getTypeColor(type) , width: "85px", textTransform: "capitalize"}}
+              className='badge me-1'
             >
               {type}
             </span>
@@ -82,6 +82,8 @@ function PokemonCard({ pokemon }) {
         </Card.Text>
       </Card.Body>
     </Card>
+  
+ 
   );
 }
 
