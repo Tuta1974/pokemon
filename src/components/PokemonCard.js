@@ -13,7 +13,7 @@ function PokemonCard({ pokemon }) {
 
   if (!pokemonInfo) return null;
 
-  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonInfo.id}.png`;
+  const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.url.slice(34, -1)}.png`;
   const pokemonNumber = `#${pokemonInfo.id.toString().padStart(3, '0')}`;
   const pokemonTypes = pokemonInfo.types.map(type => type.type.name);
 
