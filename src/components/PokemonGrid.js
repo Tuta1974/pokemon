@@ -14,7 +14,7 @@ function PokemonGrid() {
       .then(response => response.json())
       .then(data => {
         setPokemons(data.results);
-        console.log(data.next);
+        console.log(data.results);
         
       });
   }, [limit]);
