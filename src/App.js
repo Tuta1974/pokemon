@@ -1,13 +1,13 @@
 
-import PokemonCard from './components/PokemonCard';
+
 import PokemonGrid from './components/PokemonGrid';
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-    <PokemonGrid/>
-  </div>
-
+    <div className='container'>
+        <PokemonGrid />
+    </div>
   );
 }
 
