@@ -1,12 +1,13 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import Pokecard from './Componentes/Pokecard';
+
+import PokemonCard from './components/PokemonCard';
+import PokemonGrid from './components/PokemonGrid';
 
 function App() {
   return (
     <div className="App">
-      <Pokecard/>
-    </div>
+    <PokemonGrid/>
+  </div>
+
   );
 }
 
