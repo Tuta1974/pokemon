@@ -3,6 +3,8 @@ import { Col, Row } from 'react-bootstrap';
 import PokemonCard from './PokemonCard';
 import ReactPaginate from 'react-paginate';
 import '../styles/react-paginate.css';
+import ReactPaginate from 'react-paginate';
+import '../styles/react-paginate.css';
 
 function PokemonGrid() {
   const [pokemons, setPokemons] = useState([]);
