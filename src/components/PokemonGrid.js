@@ -3,12 +3,10 @@ import { Col, Row } from 'react-bootstrap';
 import PokemonCard from './PokemonCard';
 import ReactPaginate from 'react-paginate';
 import '../styles/react-paginate.css';
-import ReactPaginate from 'react-paginate';
-import '../styles/react-paginate.css';
 
 function PokemonGrid() {
   const [pokemons, setPokemons] = useState([]);
-  const [limit] = useState(12);
+  
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(20);
@@ -22,22 +20,22 @@ function PokemonGrid() {
   const currentItem = pokemons.slice(firstItem, lastItem);
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=1008')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
       .then(response => response.json())
       .then(data => {
         setPokemons(data.results);
-        console.log(data.next);
-      
+        console.log(data.results);
+        
       });
-  }, [limit]);
+  }, []);
 
 
 
   return (
     <div>
-      <Row className="g-4">
+      <Row className="g-3">
         {currentItem.map((pokemon) => (
-          <Col key={pokemon.name} xs={12} sm={6} md={3} xl={2}>
+          <Col key={pokemon.name} xs={12} sm={6} md={4} lg={3} >
             <PokemonCard pokemon={pokemon} />
           </Col>
         ))}

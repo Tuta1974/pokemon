@@ -1,9 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import Card from 'react-bootstrap/Card';
+import { Table, Card, Modal, Col, Row } from 'react-bootstrap';
 import '../styles/PokemonCard.css'
 
 function PokemonCard({ pokemon }) {
   const [pokemonInfo, setPokemonInfo] = useState(null);
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+  
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
+  const selectPokemon = () => {
+    setSelectedPokemon(pokemonInfo);
+    openModal();
+  };
 
   useEffect(() => {
     fetch(pokemon.url)
@@ -62,32 +78,97 @@ function PokemonCard({ pokemon }) {
   };
 
   return (
-    <Card className="shadow-sm poke-card">
-      <Card.Img className="imagen-card" variant="top" src={imageUrl} />
-      <Card.Body>
-        <Card.Subtitle className="mb-2 text-muted">{pokemonNumber}</Card.Subtitle>
-        <Card.Title className='text-capitalize' style={{fontWeight: '800'}}>
-          {pokemon.name}
-        </Card.Title>
-        <Card.Text>
-          {pokemonTypes.map((type, index) => (
-            <span
-              key={index}
-              style={{ backgroundImage: getTypeColor(type) , width: "85px", textTransform: "capitalize"}}
-              className='badge me-1'
-            >
-              {type}
-            </span>
-          ))}
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  
- 
+    <>
+      <Card className="shadow-sm poke-card"  onClick={selectPokemon}>
+        <Card.Img className="imagen-card" variant="top" src={imageUrl} />
+        <Card.Body>
+          <Card.Subtitle className="mb-2 text-muted">{pokemonNumber}</Card.Subtitle>
+          <Card.Title className='text-capitalize' style={{fontWeight: '800'}}>
+            {pokemon.name}
+          </Card.Title>
+          <Card.Text>
+            {pokemonTypes.map((type, index) => (
+              <span
+                key={index}
+                style={{ backgroundImage: getTypeColor(type) , width: "85px", textTransform: "capitalize"}}
+                className='badge me-1'
+              >
+                {type}
+              </span>
+            ))}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    
+      <Modal show={showModal} onHide={closeModal}>
+
+        <Modal.Header closeButton className="gray-header">
+        <Modal.Title>{selectedPokemon && selectedPokemon.name.charAt(0).toUpperCase() + selectedPokemon.name.slice(1)}</Modal.Title> 
+        </Modal.Header>
+
+        <Modal.Body>
+          {selectedPokemon && (
+            <div>
+
+              <div className="text-center">
+                <img src={imageUrl} width="400" alt={selectedPokemon.name} className="mb-2" />
+              </div>
+              
+
+              <div className="poke-info">
+                <Row className='poke-info text-center justify-content-around'>
+                  <Col>
+                    <h5>Altura</h5>
+                    <span>{selectedPokemon.height}</span>
+                  </Col>
+
+                  <Col>
+                    <h5>Peso</h5>
+                    <span>{selectedPokemon.weight}KG</span>
+                  </Col>
+                </Row>
+              </div>
+              
+                <h4 className='text-center p-3'>Estadísticas</h4>
+                <Table striped>
+                          
+                  <tbody>
+
+                    <tr>
+                      <td>Vida</td>
+                      <td>{selectedPokemon.stats[0].base_stat}</td>
+                    </tr>
+                    <tr>
+                      <td>Ataque</td>
+                      <td>{selectedPokemon.stats[1].base_stat}</td>
+                    </tr>
+                    <tr>
+                      <td>Defensa</td>
+                      <td>{selectedPokemon.stats[2].base_stat}</td>
+                    </tr>
+                    <tr>
+                      <td>Ataque Especial</td>
+                      <td>{selectedPokemon.stats[3].base_stat}</td>
+                    </tr>
+                    <tr>
+                      <td>Defensa Especial</td>
+                      <td>{selectedPokemon.stats[4].base_stat}</td>
+                    </tr>
+                    <tr>
+                      <td>Velocidad</td>
+                      <td>{selectedPokemon.stats[5].base_stat}</td>
+                    </tr>
+                            
+                  </tbody>
+                </Table>
+            
+           </div>
+          )}
+        </Modal.Body>
+
+      </Modal>
+    </>
   );
 }
 
 export default PokemonCard;
-
-
-
