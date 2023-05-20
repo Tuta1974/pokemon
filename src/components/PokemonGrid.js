@@ -20,7 +20,7 @@ function PokemonGrid() {
   const currentItem = pokemons.slice(firstItem, lastItem);
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=1008')
       .then(response => response.json())
       .then(data => {
         setPokemons(data.results);
