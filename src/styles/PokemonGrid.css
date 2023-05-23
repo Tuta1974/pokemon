@@ -1,0 +1,17 @@
+main{
+    text-align: center;
+}
+
+input{
+    height: 2em;
+    width:14em;
+    margin: 1.5em 0 2.5em 0;
+    border: 2px solid grey;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.modal-image-container {
+    max-width: 100%;
+    height: auto;
+  }

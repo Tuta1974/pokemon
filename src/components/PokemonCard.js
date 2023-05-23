@@ -111,7 +111,7 @@ function PokemonCard({ pokemon }) {
             <div>
 
               <div className="text-center">
-                <img src={imageUrl} width="400" alt={selectedPokemon.name} className="mb-2" />
+                <img src={imageUrl} alt={selectedPokemon.name} className="mb-2 modal-image-container" />
               </div>
               
 

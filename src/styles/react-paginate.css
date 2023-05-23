@@ -1,5 +1,5 @@
 ul.react-paginate {
-    margin: 1rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -7,8 +7,8 @@ ul.react-paginate {
   }
   
   ul.react-paginate li a {
-    border-radius: 7px;
-    padding: 0.1rem 1rem;
+    border-radius: 10px;
+    padding: 0.1rem .8rem;
     border: gray 1px solid;
     cursor: pointer;
   }
@@ -17,6 +17,7 @@ ul.react-paginate {
   ul.react-paginate li.next a,
   ul.react-paginate li.break a {
     border-color: transparent;
+    text-decoration: none;
   }
 
   ul.react-paginate li.selected a {
